@@ -46,7 +46,7 @@ public class Tab2 extends Fragment {
                 Greetings greeting = restTemplate.getForObject(url, Greetings.class);
                 return greeting;
             } catch (Exception e) {
-                Log.e("Tab3", e.getMessage(), e);
+                Log.e("Tab2", e.getMessage(), e);
             }
 
             return null;
@@ -55,26 +55,26 @@ public class Tab2 extends Fragment {
         @Override
         protected void onPostExecute(Greetings greeting) {
 
-            final LinearLayout lm = (LinearLayout)getActivity().findViewById(R.id.tab3linear);
+            final LinearLayout lm = (LinearLayout)getActivity().findViewById(R.id.tab2linear);
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-            LinearLayout ll = new LinearLayout(lm.getContext());
-            ll.setOrientation(LinearLayout.VERTICAL);
+            /*LinearLayout ll = new LinearLayout(lm.getContext());
+            ll.setOrientation(LinearLayout.VERTICAL);*/
 
             TextView heading=new TextView(lm.getContext());
             heading.setTypeface(Typeface.DEFAULT_BOLD);
             heading.setTextSize(20);
             heading.setText(greeting.getId());
 
-            ll.addView(heading);
+            lm.addView(heading);
 
 
             TextView content=new TextView(lm.getContext());
             content.setText(greeting.getContent());
-            ll.addView(content);
-            lm.addView(ll);
+            lm.addView(content);
+            //lm.addView(ll);
 
         }
 
